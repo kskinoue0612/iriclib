@@ -84,6 +84,7 @@ cache:
   - C:\iricdev\lib\install
 
 on_success:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - ps: |
       if ($UploadRelease) {
         # /repos/:owner/:repo/releases
